@@ -1,0 +1,22 @@
+{
+  "name": "photopic",
+  "short_name": "photopic",
+  "theme_color": "#f8f8f8",
+  "background_color": "#f8f8f8",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/?utm_source=home_screen",
+  "description": "Photopic test project.",
+  "icons": [
+    {
+      "src": "assets/pwa/manifest-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/pwa/manifest-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

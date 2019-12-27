@@ -1,0 +1,21 @@
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {map} from 'rxjs/operators';
+import {environment} from '../../environments/environment';
+import {MapboxOutput} from '../interfaces/mapbox.interface';
+
+@Injectable({
+	providedIn: 'root',
+})
+export class MapboxService {
+	constructor(private http: HttpClient) {}
+
+	search_word(query: string) {
+		const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/';
+		const header = '.json?types=place&access_token=';
+
+		return this.http
+			.get(`${url}${query}${header}${environment.mapbox.accessToken}`)
+			.pipe(map((res: MapboxOutput) => res.features));
+	}
+}

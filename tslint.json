@@ -19,6 +19,7 @@
 		"import-spacing": true,
 		"indent": [true, "tabs"],
 		"interface-over-type-literal": true,
+		"interface-name": false,
 		"label-position": true,
 		"max-line-length": [true, 140],
 		"member-access": false,
@@ -96,7 +97,8 @@
 		"no-output-rename": true,
 		"use-life-cycle-interface": true,
 		"use-pipe-transform-interface": true,
-		"directive-class-suffix": true
+		"directive-class-suffix": true,
+		"max-classes-per-file": false
 	},
 	"rulesDirectory": []
 }

@@ -1,0 +1,53 @@
+<ion-toolbar>
+	<ion-buttons slot="start" *ngIf="!isHome">
+		<ion-back-button [defaultHref]="backButtonUrl">
+			<ion-icon class="icon-button" name="arrow-back" mode="ios"></ion-icon>
+		</ion-back-button>
+	</ion-buttons>
+
+	<ion-buttons
+		slot="start"
+		*ngIf="conditions.isNotHomeMobileWithSearchbar() && isHome"
+	>
+		<ion-avatar>
+			<img width="40px" src="assets/icon/favicon.png" />
+		</ion-avatar>
+	</ion-buttons>
+
+	<ion-title *ngIf="!hasSearch" class="ion-justify-content-center">
+		<ion-avatar class="image-center">
+			<img width="40px" src="assets/icon/favicon.png" />
+		</ion-avatar>
+	</ion-title>
+
+	<ion-title class="ion-text-center" *ngIf="hasSearch">
+		<ion-icon
+			class="icon-button"
+			name="search"
+			mode="ios"
+			tappable
+			(click)="showSearchBar = true"
+			*ngIf="!showSearchBar"
+		></ion-icon>
+		<div class="searchbar-container">
+			<app-searchbar
+				(searchCancel)="showSearchBar = false"
+				(searchText)="onSearchChange($event)"
+				*ngIf="showSearchBar"
+			></app-searchbar>
+		</div>
+	</ion-title>
+
+	<ion-buttons
+		slot="end"
+		*ngIf="conditions.isNotHomeMobileWithSearchbar() || !isHome"
+	>
+		<ion-icon
+			class="icon-button"
+			name="settings"
+			mode="ios"
+			tappable
+			(click)="presentPopup($event)"
+		></ion-icon>
+	</ion-buttons>
+</ion-toolbar>

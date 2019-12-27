@@ -1,0 +1,14 @@
+<ion-slides [options]="slideOpts" class="ion-margin-top	">
+	<ion-slide
+		*ngFor="let category of categories; let i = index"
+		tappable
+		(click)="slideChange(i, category)"
+		[ngClass]="{'category-active': selectedCategory === category}"
+	>
+		<div>
+			<h4>
+				{{ 'HOME.CATEGORIES.' + category | translate }}
+			</h4>
+		</div>
+	</ion-slide>
+</ion-slides>

@@ -1,0 +1,21 @@
+{
+    "HOME": {
+        "STUDIO": {
+            "TITLE": "Estudios"
+        },
+        "SEARCHBAR": {
+            "PLACEHOLDER": "Buscar..."
+        },
+        "CATEGORIES": {
+            "TOP": "top",
+            "WEDDING": "boda",
+            "QUINCE": "quince",
+            "BABY": "bebés",
+            "BOUDOIR": "boudoir",
+            "CHILDREN": "niños",
+            "EVENTS": "eventos",
+            "PRODUCTS": "productos",
+            "FASHION": "moda"
+        }
+    }
+}

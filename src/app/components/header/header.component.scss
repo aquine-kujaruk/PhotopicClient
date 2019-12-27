@@ -1,0 +1,42 @@
+ion-icon {
+	&.icon-button {
+		font-size: 40px;
+		cursor: pointer;
+	}
+}
+
+ion-back-button {
+	height: 40px !important;
+	width: 40px !important;
+	min-width: 40px !important;
+}
+
+ion-avatar {
+	height: 40px;
+	width: 40px;
+}
+
+ion-toolbar {
+	padding: 0 16px;
+	--padding-top: 2px;
+	&.md.hydrated {
+		height: 100%;
+		margin-top: -6px;
+	}
+}
+
+ion-title {
+	padding: 0 12px;
+}
+
+ion-avatar.image-center {
+	margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+	div.searchbar-container {
+		width: 50%;
+		max-width: 550px;
+		margin: 0 auto;
+	}
+}

@@ -1,0 +1,28 @@
+ion-button.round {
+	cursor: pointer;
+	height: 60px;
+	font-size: 24px;
+	font-weight: 600;
+	--ion-color-base: transparent !important;
+	--box-shadow: none;
+	border-color: var(--ion-color-text) !important;
+	border-style: solid;
+	border-width: 3px;
+	border-radius: 40px;
+	color: var(--ion-color-text) !important;
+}
+
+ion-button.round:focus {
+	outline: none;
+}
+
+ion-buttons {
+	cursor: pointer;
+}
+
+.sc-ion-back-button-md-h {
+	--background-focused: transparent !important;
+	--background-hover: transparent !important;
+	--color-focused: transparent !important;
+	--color-hover: transparent !important;
+}

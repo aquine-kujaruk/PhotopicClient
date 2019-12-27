@@ -1,5 +1,7 @@
 {
-  "name": "photopic-client",
-  "integrations": {},
-  "type": "angular"
+	"name": "photopic-client",
+	"integrations": {
+		"cordova": {}
+	},
+	"type": "angular"
 }

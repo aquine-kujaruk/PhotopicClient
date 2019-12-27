@@ -1,0 +1,49 @@
+.action-sheet-group.sc-ion-action-sheet-md {
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+}
+
+.dark-theme .action-sheet-group.sc-ion-action-sheet-md {
+	background-image: linear-gradient(
+		to left top,
+		#0f1012,
+		#18191c,
+		#1f2125,
+		#27292f,
+		#2f3239
+	);
+}
+
+.light-theme .action-sheet-group.sc-ion-action-sheet-md {
+	background-image: linear-gradient(
+		to left top,
+		#dfdfdf,
+		#e5e5e5,
+		#ebebeb,
+		#f2f2f2,
+		#f8f8f8
+	);
+}
+
+.action-sheet-group.sc-ion-action-sheet-md:last-child {
+	padding-bottom: 32px;
+}
+
+.action-sheet-title.sc-ion-action-sheet-md {
+	font-size: 32px;
+	font-weight: bold;
+	margin-bottom: 5%;
+	color: var(--ion-text-color);
+}
+
+span.action-sheet-button-inner.sc-ion-action-sheet-md {
+	font-size: 22px;
+	font-weight: bold;
+	color: var(--ion-color-text-soft);
+}
+
+ion-icon.action-sheet-icon.sc-ion-action-sheet-md.md.hydrated {
+	font-size: 32px;
+	margin-top: 4px;
+	color: var(--ion-color-text-soft);
+}

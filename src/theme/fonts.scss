@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Asap';
+    font-style: normal;
+    font-weight: normal;
+    src: url('src/assets/fonts/Asap/Asap-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Asap';
+    font-style: normal;
+    font-weight: bold;
+    src: url('src/assets/fonts/Asap/Asap-Bold.ttf');
+}
+
+:root {
+    --ion-font-family: 'Asap'
+}

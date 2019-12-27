@@ -1,0 +1,16 @@
+<ion-header #header no-border hidenav-header>
+	<app-header
+		isHome="true"
+		hasSearch="true"
+		(searchText)="search($event)"
+	></app-header>
+</ion-header>
+
+<ion-content hidenav-content>
+	<app-categories
+		[categories]="categories"
+		[selectedCategory]="selectedCategory"
+		(changeCategory)="slideChange($event)"
+	></app-categories>
+	<app-studios></app-studios>
+</ion-content>

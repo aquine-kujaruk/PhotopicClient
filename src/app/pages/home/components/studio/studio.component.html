@@ -1,0 +1,62 @@
+<ion-row>
+	<ion-col
+		size="12"
+		size-sm="6"
+		size-lg="4"
+		*ngFor="let studio of studios"
+		class="card-content"
+	>
+		<ion-card class="z-depth-0">
+			<div class="ion-text-end">
+				<ion-icon
+					class="icon-more text-color"
+					name="more"
+					tappable
+					(click)="presentPopUp(studio, $event)"
+				></ion-icon>
+			</div>
+
+			<ion-card-header
+				#imageContainer
+				class="ion-no-padding"
+				tappable
+				(click)="studioDetails(studio.id)"
+			>
+				<div
+					class="image-fit"
+					[style.height.px]="setImageHeight(imageContainer, studio)"
+					[style.backgroundImage]="studio.img | imageUrlToBase64 | async"
+				></div>
+			</ion-card-header>
+
+			<ion-card-content>
+				<ion-grid class="ion-no-padding">
+					<ion-row>
+						<ion-col size="8" class="ion-no-padding">
+							<div class="ion-text-start">
+								<h4 class="text-color">{{ studio.title }}</h4>
+							</div>
+						</ion-col>
+
+						<ion-col class="ion-no-padding">
+							<ion-grid class="ion-no-padding">
+								<ion-row>
+									<ion-col size="10" class="ion-no-padding">
+										<div class="ion-text-end">
+											<h4 class="text-color">3.6</h4>
+										</div>
+									</ion-col>
+									<ion-col size="2" class="ion-no-padding">
+										<div class="ion-text-start">
+											<ion-icon class="icon-star" name="star"></ion-icon>
+										</div>
+									</ion-col>
+								</ion-row>
+							</ion-grid>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-card-content>
+		</ion-card>
+	</ion-col>
+</ion-row>

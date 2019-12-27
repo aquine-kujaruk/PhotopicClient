@@ -1,0 +1,26 @@
+<ion-list>
+	<ion-item lines="none" tappable (click)="share()">
+		<ion-icon slot="start" name="share"></ion-icon>
+		<ion-label>Compartir</ion-label>
+	</ion-item>
+
+	<ion-item lines="none" tappable (click)="save()">
+		<ion-icon slot="start" name="heart"></ion-icon>
+		<ion-label>Guardar</ion-label>
+	</ion-item>
+
+	<ion-item lines="none" tappable (click)="webpage()">
+		<ion-icon slot="start" name="globe"></ion-icon>
+		<ion-label>Página web</ion-label>
+	</ion-item>
+
+	<ion-item lines="none" tappable (click)="instagramProfile()" class="instagram-color">
+		<ion-icon slot="start" name="logo-instagram"></ion-icon>
+		<ion-label>Perfil de instagram</ion-label>
+	</ion-item>
+
+	<ion-item lines="none" tappable (click)="facebookProfie()" class="facebook-color">
+		<ion-icon slot="start" name="logo-facebook"></ion-icon>
+		<ion-label>Perfil de facebook</ion-label>
+	</ion-item>
+</ion-list>

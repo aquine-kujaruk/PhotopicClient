@@ -1,0 +1,12 @@
+<ion-searchbar
+	class="app-searchbar ion-text-left"
+	showCancelButton="always"
+	placeholder="{{ 'HOME.SEARCHBAR.PLACEHOLDER' | translate }}"
+	color="background-medium"
+	spellcheck="false"
+	animated
+	[debounce]="250"
+	(ionCancel)="onSearchCancel()"
+	(ionChange)="onSearchChange($event)"
+>
+</ion-searchbar>

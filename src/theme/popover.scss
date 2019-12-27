@@ -1,0 +1,55 @@
+.custom-popover {
+	ion-item {
+		height: 42px !important;
+		cursor: pointer;
+
+		ion-icon {
+			margin: 0 10px 0 0;
+			color: var(--ion-color-text-soft);
+			filter: saturate(1);
+			transition: color 0.5s;
+		}
+
+		ion-label {
+			--color: var(--ion-color-text-soft) !important;
+			transition: color 0.5s;
+			font-size: 18px;
+			font-weight: bold;
+			margin-top: 0 !important;
+			margin-bottom: 0 !important;
+		}
+
+		&:hover {
+			ion-icon {
+				color: var(--ion-color-text);
+				filter: saturate(2);
+			}
+
+			ion-label {
+				--color: var(--ion-color-text) !important;
+			}
+		}
+	}
+
+	.popover-wrapper,
+	ion-item {
+		--background: var(--ion-color-background);
+	}
+
+	ion-list {
+		background: var(--ion-color-background);
+	}
+}
+
+.dark-theme {
+	.custom-popover {
+		.popover-wrapper,
+		ion-item {
+			--background: var(--ion-color-background-soft);
+		}
+
+		ion-list {
+			background: var(--ion-color-background-soft);
+		}
+	}
+}

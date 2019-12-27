@@ -1,0 +1,23 @@
+<ion-list *ngIf="!isAuthenticated">
+	<ion-item lines="none" tappable (click)="english()">
+		<ion-label>Loguéate</ion-label>
+	</ion-item>
+
+	<ion-item lines="none" tappable (click)="spanish()">
+		<ion-label>Configuración</ion-label>
+	</ion-item>
+</ion-list>
+
+<ion-list *ngIf="isAuthenticated">
+	<ion-item lines="none" tappable (click)="_popoverCtrl.dismiss()">
+		<ion-label>Perfil de cliente</ion-label>
+	</ion-item>
+
+	<ion-item lines="none" tappable (click)="_popoverCtrl.dismiss()">
+		<ion-label>Perfil de estudio</ion-label>
+	</ion-item>
+
+	<ion-item lines="none" tappable (click)="_popoverCtrl.dismiss()">
+		<ion-label>Configuración</ion-label>
+	</ion-item>
+</ion-list>

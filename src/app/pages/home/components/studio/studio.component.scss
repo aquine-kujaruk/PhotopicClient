@@ -1,0 +1,42 @@
+ion-card-header {
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+ion-card-content {
+	padding-top: 6px;
+	padding-bottom: 0;
+}
+
+h4 {
+	font-weight: 800;
+	font-size: 1em;
+	line-height: 1.3;
+}
+
+ion-icon {
+	padding-top: 3px;
+	margin-left: 1px;
+	&.icon-star {
+		font-size: 15px;
+		color: var(--ion-color-app);
+	}
+	&.icon-more {
+		font-size: 2.5em;
+		transform: rotate(90deg);
+		cursor: pointer;
+	}
+}
+
+.card-content:hover {
+	background: rgba(var(--ion-color-background-soft-rgb), 0.8);
+	border-radius: 15px;
+}
+
+.image-fit {
+	width: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	cursor: pointer;
+}
