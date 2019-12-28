@@ -1,0 +1,16 @@
+.image-fit {
+	width: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	cursor: pointer;
+	border-radius: 15px;
+}
+
+.gallery-container {
+	padding: 12px 8px;
+	.image-fit {
+		margin-top: 12px;
+		border-radius: 10px;
+	}
+}

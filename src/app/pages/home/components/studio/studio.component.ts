@@ -26,6 +26,7 @@ export class StudioComponent implements OnInit, DoCheck {
 
 	ngOnInit() {}
 
+	/* To bg-image fit */
 	ngDoCheck() {
 		this.cdRef.detectChanges();
 	}

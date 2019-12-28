@@ -8,7 +8,6 @@ import {
 import {ActivatedRoute} from '@angular/router';
 import {Categories} from 'src/app/enumerators/app.enum';
 import {studiosJson} from 'src/assets/tests/home';
-import {studioGallery} from '../../../assets/tests/home';
 
 @Component({
 	selector: 'app-studio-detail',
@@ -19,7 +18,6 @@ import {studioGallery} from '../../../assets/tests/home';
 export class StudioDetailPage implements OnInit, DoCheck {
 	studio: any;
 	categories = Object.values(Categories);
-	photoGallery = studioGallery;
 
 	constructor(
 		private _route: ActivatedRoute,
@@ -32,6 +30,7 @@ export class StudioDetailPage implements OnInit, DoCheck {
 		);
 	}
 
+	/* To bg-image fit */
 	ngDoCheck() {
 		this.cdRef.detectChanges();
 	}

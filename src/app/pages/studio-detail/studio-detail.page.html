@@ -31,20 +31,5 @@
 
 	<app-categories [categories]="categories"></app-categories>
 
-	<ion-grid class="ion-padding gallery-container">
-		<ion-row>
-			<ion-col
-				size="6"
-				#imageGalleryContainer
-				*ngFor="let columns of photoGallery | imageGallery"
-			>
-				<div
-					*ngFor="let photo of columns"
-					class="image-fit"
-					[style.height.px]="setImageHeight(imageGalleryContainer, photo)"
-					[style.backgroundImage]="photo.img | imageUrlToBase64 | async"
-				></div>
-			</ion-col>
-		</ion-row>
-	</ion-grid>
+	<app-gallery></app-gallery>
 </ion-content>

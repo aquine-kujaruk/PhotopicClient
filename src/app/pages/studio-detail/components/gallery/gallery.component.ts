@@ -1,0 +1,47 @@
+import {
+	ChangeDetectionStrategy,
+	ChangeDetectorRef,
+	Component,
+	DoCheck,
+	OnInit,
+} from '@angular/core';
+import {ModalController} from '@ionic/angular';
+import {studioGallery} from '../../../../../../www/assets/tests/home';
+import {ModalGalleryComponent} from '../../../../components/modal-gallery/modal-gallery.component';
+
+@Component({
+	selector: 'app-gallery',
+	templateUrl: './gallery.component.html',
+	styleUrls: ['./gallery.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class GalleryComponent implements OnInit, DoCheck {
+	photoGallery = studioGallery;
+
+	constructor(
+		private _modalCtrl: ModalController,
+		private cdRef: ChangeDetectorRef,
+	) {}
+
+	ngOnInit() {}
+
+	/* To bg-image fit */
+	ngDoCheck() {
+		this.cdRef.detectChanges();
+	}
+
+	setImageHeight(imageContainer, data) {
+		return (data.height * imageContainer.el.clientWidth) / data.width;
+	}
+
+	async gallery(photo: string) {
+		const modal = await this._modalCtrl.create({
+			component: ModalGalleryComponent,
+			componentProps: {
+				photo,
+			},
+		});
+
+		await modal.present();
+	}
+}
