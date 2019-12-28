@@ -40,6 +40,7 @@ export class GalleryComponent implements OnInit, DoCheck {
 			componentProps: {
 				photo,
 			},
+			cssClass: 'gallery-modal',
 		});
 
 		await modal.present();

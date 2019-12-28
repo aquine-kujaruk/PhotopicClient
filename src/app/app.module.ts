@@ -5,6 +5,7 @@ import {RouteReuseStrategy} from '@angular/router';
 
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
+import {SuperTabsModule} from '@ionic-super-tabs/angular';
 import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
 
 import {ServiceWorkerModule} from '@angular/service-worker';
@@ -62,6 +63,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 		ServiceWorkerModule.register('main-sw.js', {
 			enabled: environment.production,
 		}),
+		SuperTabsModule.forRoot(),
 	],
 	providers: [
 		StatusBar,

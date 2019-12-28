@@ -25,3 +25,19 @@ ion-button {
 ion-grid {
 	padding-top: 8px;
 }
+
+:host {
+	--st-indicator-color: var(--ion-color-app);
+}
+
+super-tab-button {
+	color: var(--ion-color-text);
+	&.active {
+		color: var(--ion-color-app);
+	}
+	ion-label {
+		font-size: 18px;
+		font-weight: bold;
+		text-transform: capitalize;
+	}
+}

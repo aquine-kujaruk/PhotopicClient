@@ -1,38 +1,64 @@
-ion-modal.info-modal {
-	--width: 80%;
-	--height: 80%;
-	--border-radius: 14px;
-	--max-width: 800px;
+ion-modal {
+	&.info-modal {
+		--width: 80%;
+		--height: 80%;
+		--border-radius: 14px;
+		--max-width: 800px;
 
-	ion-header {
-		ion-toolbar {
+		ion-header {
+			ion-toolbar {
+				--background: transparent;
+			}
+		}
+
+		& ion-content {
 			--background: transparent;
+		}
+
+		.light-theme & ion-content.first-color {
+			background-image: linear-gradient(
+				to left top,
+				#dfdfdf,
+				#e5e5e5,
+				#ebebeb,
+				#f2f2f2,
+				#f8f8f8
+			);
+		}
+
+		.dark-theme & ion-content.first-color {
+			background-image: linear-gradient(
+				to left top,
+				#0f1012,
+				#18191c,
+				#1f2125,
+				#27292f,
+				#2f3239
+			);
 		}
 	}
 
-	& ion-content {
-		--background: transparent;
-	}
+	&.gallery-modal {
+		--background: #000000e8;
 
-	.light-theme & ion-content.first-color {
-		background-image: linear-gradient(
-			to left top,
-			#dfdfdf,
-			#e5e5e5,
-			#ebebeb,
-			#f2f2f2,
-			#f8f8f8
-		);
-	}
+		.close-fake {
+			--background: transparent;
+			ion-button {
+				color: #bfbfbf;
+			}
+			ion-icon {
+				font-size: 2rem;
+				color: #bfbfbf;
+			}
+			margin-top: 40px;
+		}
 
-	.dark-theme & ion-content.first-color {
-		background-image: linear-gradient(
-			to left top,
-			#0f1012,
-			#18191c,
-			#1f2125,
-			#27292f,
-			#2f3239
-		);
+		ion-content {
+			--background: transparent;
+		}
+
+		ion-slides {
+			height: 80%;
+		}
 	}
 }

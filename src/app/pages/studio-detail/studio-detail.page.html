@@ -1,35 +1,57 @@
-<ion-header #header no-border hidenav-header>
+<ion-header no-border>
 	<app-header backButtonUrl="home"></app-header>
 </ion-header>
 
-<ion-content hidenav-content>
-	<ion-grid class="ion-padding">
-		<ion-row class="ion-justify-content-end">
-			<ion-col size="auto">
-				<ion-button shape="round" class="round" color="text-medium">
-					Planes
-				</ion-button>
-			</ion-col>
-		</ion-row>
+<ion-content>
+	<super-tabs>
+		<super-tabs-toolbar slot="top" color="background" no-border>
+			<super-tab-button>
+				<ion-label>Galería</ion-label>
+			</super-tab-button>
+			<super-tab-button>
+				<ion-label>Detalles</ion-label>
+			</super-tab-button>
+		</super-tabs-toolbar>
 
-		<ion-row>
-			<ion-col size="10">
-				<h1>
-					{{ studio.title }}
-				</h1>
-			</ion-col>
-		</ion-row>
+		<super-tabs-container>
+			<super-tab>
+				<ion-content>
+					<ion-grid class="ion-padding">
+						<ion-row class="ion-justify-content-end">
+							<ion-col size="auto">
+								<ion-button shape="round" class="round" color="text-medium">
+									Planes
+								</ion-button>
+							</ion-col>
+						</ion-row>
 
-		<ion-row #imageContainer>
-			<div
-				class="image-fit"
-				[style.height.px]="setImageHeight(imageContainer, studio)"
-				[style.backgroundImage]="studio.img | imageUrlToBase64 | async"
-			></div>
-		</ion-row>
-	</ion-grid>
+						<ion-row>
+							<ion-col size="10">
+								<h1>
+									{{ studio.title }}
+								</h1>
+							</ion-col>
+						</ion-row>
 
-	<app-categories [categories]="categories"></app-categories>
+						<ion-row #imageContainer>
+							<div
+								class="image-fit"
+								[style.height.px]="setImageHeight(imageContainer, studio)"
+								[style.backgroundImage]="studio.img | imageUrlToBase64 | async"
+							></div>
+						</ion-row>
+					</ion-grid>
 
-	<app-gallery></app-gallery>
+					<app-categories [categories]="categories"></app-categories>
+
+					<app-gallery></app-gallery>
+				</ion-content>
+			</super-tab>
+			<super-tab>
+				<ion-content>
+					Page #2
+				</ion-content>
+			</super-tab>
+		</super-tabs-container>
+	</super-tabs>
 </ion-content>
