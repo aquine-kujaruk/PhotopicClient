@@ -6,7 +6,7 @@ import {
 	OnInit,
 } from '@angular/core';
 import {ModalController} from '@ionic/angular';
-import {studioGallery} from '../../../../../../www/assets/tests/home';
+import {studioGallery} from 'src/assets/tests/home';
 import {ModalGalleryComponent} from '../../../../components/modal-gallery/modal-gallery.component';
 
 @Component({

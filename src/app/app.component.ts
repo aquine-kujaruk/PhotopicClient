@@ -1,7 +1,7 @@
 import {Component, HostListener} from '@angular/core';
 
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
-import {StatusBar} from '@ionic-native/status-bar/ngx';
+/* import {StatusBar} from '@ionic-native/status-bar/ngx'; */
 import {AlertController, Platform} from '@ionic/angular';
 
 import {SwUpdate, UpdateAvailableEvent} from '@angular/service-worker';
@@ -18,7 +18,7 @@ export class AppComponent {
 	constructor(
 		private platform: Platform,
 		private splashScreen: SplashScreen,
-		private statusBar: StatusBar,
+		/* private statusBar: StatusBar, */
 		private _themeService: ThemeService,
 		private _platformService: PlatformService,
 		private swUpdate: SwUpdate,
@@ -29,7 +29,7 @@ export class AppComponent {
 
 	initializeApp() {
 		this.platform.ready().then(() => {
-			this.statusBar.styleDefault();
+			/* this.statusBar.styleDefault(); */
 			this.splashScreen.hide();
 			this._themeService.addBodyClass(Theme.LIGHT_THEME);
 			this._platformService.setBreackpoint(this.platform.width());

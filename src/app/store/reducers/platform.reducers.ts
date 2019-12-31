@@ -3,7 +3,7 @@ import * as fromPlatform from '../actions/platform.actions';
 
 export interface PlatformState {
 	breakpoint: string;
-	names: any;
+	names: string[];
 	isWebpCompatible: boolean;
 	language: string;
 }
