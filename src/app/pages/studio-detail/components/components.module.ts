@@ -6,9 +6,10 @@ import * as fromApp from 'src/app/components/components.module';
 import {PipesModule} from '../../../pipes/pipes.module';
 import {DetailsComponent} from './details/details.component';
 import {GalleryComponent} from './gallery/gallery.component';
+import {PlansComponent} from './plans/plans.component';
 
 @NgModule({
-	declarations: [GalleryComponent, DetailsComponent],
+	declarations: [GalleryComponent, DetailsComponent, PlansComponent],
 	imports: [
 		CommonModule,
 		IonicModule,
@@ -16,6 +17,6 @@ import {GalleryComponent} from './gallery/gallery.component';
 		PipesModule,
 		fromApp.ComponentsModule,
 	],
-	exports: [GalleryComponent, DetailsComponent],
+	exports: [GalleryComponent, DetailsComponent, PlansComponent],
 })
 export class ComponentsModule {}

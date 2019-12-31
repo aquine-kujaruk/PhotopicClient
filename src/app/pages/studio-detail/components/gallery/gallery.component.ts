@@ -3,11 +3,13 @@ import {
 	ChangeDetectorRef,
 	Component,
 	DoCheck,
+	Input,
 	OnInit,
 } from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {studioGallery} from 'src/assets/tests/home';
 import {ModalGalleryComponent} from '../../../../components/modal-gallery/modal-gallery.component';
+import {Categories} from '../../../../enumerators/app.enum';
 
 @Component({
 	selector: 'app-gallery',
@@ -16,7 +18,10 @@ import {ModalGalleryComponent} from '../../../../components/modal-gallery/modal-
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GalleryComponent implements OnInit, DoCheck {
+	@Input() studio: any;
+
 	photoGallery = studioGallery;
+	categories = Object.values(Categories);
 
 	constructor(
 		private _modalCtrl: ModalController,

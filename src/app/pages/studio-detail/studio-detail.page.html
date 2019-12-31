@@ -8,6 +8,11 @@
 			<super-tab-button>
 				<ion-label>Galería</ion-label>
 			</super-tab-button>
+
+			<super-tab-button>
+				<ion-label>Planes</ion-label>
+			</super-tab-button>
+
 			<super-tab-button>
 				<ion-label>Detalles</ion-label>
 			</super-tab-button>
@@ -16,40 +21,19 @@
 		<super-tabs-container>
 			<super-tab>
 				<ion-content>
-					<ion-grid class="ion-padding">
-						<ion-row class="ion-justify-content-end">
-							<ion-col size="auto">
-								<ion-button shape="round" class="round" color="text-medium">
-									Planes
-								</ion-button>
-							</ion-col>
-						</ion-row>
-
-						<ion-row>
-							<ion-col size="10">
-								<h1>
-									{{ studio.title }}
-								</h1>
-							</ion-col>
-						</ion-row>
-
-						<ion-row #imageContainer>
-							<div
-								class="image-fit"
-								[style.height.px]="setImageHeight(imageContainer, studio)"
-								[style.backgroundImage]="studio.img | imageUrlToBase64 | async"
-							></div>
-						</ion-row>
-					</ion-grid>
-
-					<app-categories [categories]="categories"></app-categories>
-
-					<app-gallery></app-gallery>
+					<app-gallery [studio]="studio"></app-gallery>
 				</ion-content>
 			</super-tab>
+
 			<super-tab>
 				<ion-content>
-					Page #2
+					<app-plans></app-plans>
+				</ion-content>
+			</super-tab>
+
+			<super-tab>
+				<ion-content>
+					<app-details></app-details>
 				</ion-content>
 			</super-tab>
 		</super-tabs-container>
