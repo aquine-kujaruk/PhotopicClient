@@ -6,7 +6,6 @@ import {
 	Input,
 	OnInit,
 } from '@angular/core';
-import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {MapboxService} from '../../../../services/mapbox.service';
 
 @Component({
@@ -18,11 +17,7 @@ import {MapboxService} from '../../../../services/mapbox.service';
 export class DetailsComponent implements OnInit, DoCheck {
 	@Input() studio: any;
 
-	constructor(
-		public _mapboxService: MapboxService,
-		private cdRef: ChangeDetectorRef,
-		private iab: InAppBrowser,
-	) {}
+	constructor(public _mapboxService: MapboxService, private cdRef: ChangeDetectorRef) {}
 
 	ngOnInit() {}
 
@@ -33,14 +28,5 @@ export class DetailsComponent implements OnInit, DoCheck {
 
 	setImageHeight(imageContainer) {
 		return 0.5 * imageContainer.el.clientWidth;
-	}
-
-	getMapImage() {
-		return this._mapboxService.staticImage(this.studio.coordinates);
-	}
-
-	openInGoogleMaps() {
-		const url = `https://www.google.com/maps/@${this.studio.coordinates[1]},${this.studio.coordinates[0]},20z`;
-		this.iab.create(url, '_system');
 	}
 }

@@ -3,9 +3,11 @@
 		<div
 			class="image-fit"
 			[style.height.px]="setImageHeight(imageContainer)"
-			[style.backgroundImage]="getMapImage() | imageUrlToBase64 | async"
+			[style.backgroundImage]="
+				_mapboxService.staticImage(studio.coordinates) | imageUrlToBase64 | async
+			"
 			tappable
-			(click)="openInGoogleMaps()"
+			(click)="_mapboxService.openInGoogleMaps(studio.coordinates)"
 		></div>
 	</ion-row>
 </ion-grid>
