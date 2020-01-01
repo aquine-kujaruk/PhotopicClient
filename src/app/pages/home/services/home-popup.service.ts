@@ -1,18 +1,15 @@
 import {Injectable} from '@angular/core';
+import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {ActionSheetController, PopoverController} from '@ionic/angular';
 import {Store} from '@ngrx/store';
-import {AppState} from 'src/app/store/app.reducer';
-import {
-	DarkThemeAction,
-	LightThemeAction
-} from 'src/app/store/actions/ui.actions';
-import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
-import {StudioPopoverComponent} from '../../../popovers/home/studio-popover/studio-popover.component';
 import {Subscription} from 'rxjs';
+import {DarkThemeAction, LightThemeAction} from 'src/app/store/actions/ui.actions';
+import {AppState} from 'src/app/store/app.reducer';
 import {Breackpoints} from '../../../enumerators/app.enum';
+import {StudioPopoverComponent} from '../../../popovers/home/studio-popover/studio-popover.component';
 
 @Injectable({
-	providedIn: 'root'
+	providedIn: 'root',
 })
 export class HomePopupService {
 	private platformSubs: Subscription;
@@ -22,7 +19,7 @@ export class HomePopupService {
 		private _actionSheetCtrl: ActionSheetController,
 		private _store: Store<AppState>,
 		private iab: InAppBrowser,
-		private _popoverCtrl: PopoverController
+		private _popoverCtrl: PopoverController,
 	) {
 		this.platformSubs = this._store.select('platform').subscribe((state) => {
 			this.breackpoint = state.breakpoint;
@@ -46,21 +43,21 @@ export class HomePopupService {
 					icon: 'share',
 					handler: () => {
 						this._store.dispatch(new DarkThemeAction());
-					}
+					},
 				},
 				{
 					text: 'Guardar',
 					icon: 'heart',
 					handler: () => {
 						this._store.dispatch(new LightThemeAction());
-					}
+					},
 				},
 				{
 					text: 'Página web',
 					icon: 'globe',
 					handler: () => {
 						this.iab.create('https://ionicframework.com/', '_system');
-					}
+					},
 				},
 				{
 					text: 'Perfil de instagram',
@@ -68,20 +65,17 @@ export class HomePopupService {
 					cssClass: 'instagram-color',
 					handler: () => {
 						this.iab.create('https://www.instagram.com/eaquine/', '_system');
-					}
+					},
 				},
 				{
 					text: 'Perfil de facebook',
 					icon: 'logo-facebook',
 					cssClass: 'facebook-color',
 					handler: () => {
-						this.iab.create(
-							'https://www.facebook.com/profile.php?id=100009445921897',
-							'_system'
-						);
-					}
-				}
-			]
+						this.iab.create('https://www.facebook.com/profile.php?id=100009445921897', '_system');
+					},
+				},
+			],
 		});
 		await actionSheet.present();
 	}
@@ -89,9 +83,9 @@ export class HomePopupService {
 	private async studioPopover(studio, event) {
 		const popover = await this._popoverCtrl.create({
 			component: StudioPopoverComponent,
-			event: event,
+			event,
 			mode: 'ios',
-			cssClass: 'custom-popover'
+			cssClass: 'custom-popover',
 		});
 
 		await popover.present();
@@ -119,10 +113,7 @@ export class HomePopupService {
 		}
 
 		if (data.res === 'facebook') {
-			this.iab.create(
-				'https://www.facebook.com/profile.php?id=100009445921897',
-				'_system'
-			);
+			this.iab.create('https://www.facebook.com/profile.php?id=100009445921897', '_system');
 		}
 	}
 

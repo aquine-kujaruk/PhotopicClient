@@ -55,7 +55,7 @@ export class ModalFilterComponent implements OnInit, AfterViewInit {
 		const searchTerm = event.target.value.toLowerCase();
 		if (searchTerm && searchTerm.length > 0) {
 			this._mapboxService
-				.search_word(searchTerm)
+				.searchWord(searchTerm)
 				.subscribe((features: Feature[]) => {
 					this.addresses = features.map((feat) => {
 						return {

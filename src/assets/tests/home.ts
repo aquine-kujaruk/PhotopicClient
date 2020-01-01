@@ -6,57 +6,65 @@ export const studiosJson = [
 		img: `${header}/thJF813/1.jpg`,
 		title: 'Studio Title 1',
 		height: 200,
-		width: 400
+		width: 400,
+		coordinates: [-78.4924422809062, -0.1425114741146416],
 	},
 	{
 		id: 2,
 		img: `${header}/s5PN59w/2.jpg`,
 		title: 'Studio Title 2',
 		height: 200,
-		width: 400
+		width: 400,
+		coordinates: [-78.4924422809062, -0.1425114741146416],
 	},
 	{
 		id: 3,
 		img: `${header}/hRLtCgq/3.jpg`,
 		title: 'Studio Title 3',
 		height: 200,
-		width: 400
+		width: 400,
+		coordinates: [-78.4924422809062, -0.1425114741146416],
 	},
 	{
 		id: 4,
 		img: `${header}/gjwBXJs/4.jpg`,
 		title: 'Studio Title 4',
 		height: 200,
-		width: 400
+		width: 400,
+		coordinates: [-78.4924422809062, -0.1425114741146416],
 	},
 	{
 		id: 5,
 		img: `${header}/FYNyd6V/5.jpg`,
 		title: 'Studio Title 5',
 		height: 200,
-		width: 400
+		width: 400,
+		coordinates: [-78.4924422809062, -0.1425114741146416],
 	},
 	{
 		id: 6,
 		img: `${header}/KrrHYzP/6.jpg`,
 		title: 'Studio Title 6',
 		height: 200,
-		width: 400
+		width: 400,
+		coordinates: [-78.4924422809062, -0.1425114741146416],
 	},
 	{
 		id: 7,
 		img: `${header}/S34Sgm1/7.jpg`,
 		title: 'Studio Title 7',
 		height: 200,
-		width: 400
+		width: 400,
+		coordinates: [-78.4924422809062, -0.1425114741146416],
 	},
 	{
 		id: 8,
 		img: `${header}/rt0pdtt/8.jpg`,
 		title: 'Studio Title 8',
 		height: 200,
-		width: 400
-	}
+		width: 400,
+		coordinates: [-78.4924422809062, -0.1425114741146416],
+	},
 ];
 
 export const studioGallery = [
@@ -82,5 +90,5 @@ export const studioGallery = [
 	{img: `${header}/nbhWFCF/20.jpg`, height: 644, width: 500},
 	{img: `${header}/b7kHLkT/21.jpg`, height: 333, width: 500},
 	{img: `${header}/5WwTTGW/22.jpg`, height: 750, width: 500},
-	{img: `${header}/DQN8Lfp/23.jpg`, height: 500, width: 500}
+	{img: `${header}/DQN8Lfp/23.jpg`, height: 500, width: 500},
 ];
