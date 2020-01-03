@@ -36,7 +36,6 @@ export class MapboxService {
 	openInGoogleMaps(coordinates) {
 		const lon = coordinates[0];
 		const lat = coordinates[1];
-		const url1 = `https://www.google.com/maps/place/@${lon},${lat},20z`;
 		const url = `http://maps.google.com/maps?z=18&q=${lat},${lon}`;
 
 		this.iab.create(url, '_system');
