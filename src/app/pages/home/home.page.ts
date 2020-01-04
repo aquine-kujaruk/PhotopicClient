@@ -2,8 +2,9 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Subscription} from 'rxjs';
 import {Categories} from 'src/app/enumerators/app.enum';
+import {STATE_HOME} from '../../constants/app.const';
 import {GetStudios} from './store/actions/studios.action';
-import {AppState} from './store/home.reducer';
+import {IAppState} from './store/home.reducer';
 
 @Component({
 	selector: 'app-home',
@@ -16,10 +17,10 @@ export class HomePage implements OnInit, OnDestroy {
 
 	private studiosSubs: Subscription;
 
-	constructor(private _store: Store<AppState>) {}
+	constructor(private _store: Store<IAppState>) {}
 
 	ngOnInit() {
-		this.studiosSubs = this._store.select('home').subscribe((state) => {
+		this.studiosSubs = this._store.select(STATE_HOME).subscribe((state) => {
 			this.selectedCategory = state.studios.category;
 		});
 	}

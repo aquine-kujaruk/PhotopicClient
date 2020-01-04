@@ -10,15 +10,17 @@ import * as fromHome from './components/components.module';
 import {HomePageRoutingModule} from './home-routing.module';
 import {HomePage} from './home.page';
 
-// Traslate
-
-import {HttpClient} from '@angular/common/http';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {STATE_HOME} from 'src/app/constants/app.const';
 
 // Store
 import {StoreModule} from '@ngrx/store';
 import {homeReducers} from './store/home.reducer';
+
+// Traslate
+import {HttpClient} from '@angular/common/http';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/-', '.json');
 }
@@ -35,7 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 				deps: [HttpClient],
 			},
 		}),
-		StoreModule.forFeature('home', homeReducers),
+		StoreModule.forFeature(STATE_HOME, homeReducers),
 		fromHome.ComponentsModule,
 		fromApp.ComponentsModule,
 		HidenavModule,

@@ -11,7 +11,7 @@
 		"lint": "ng lint",
 		"e2e": "ng e2e",
 		"prettier": "prettier --write '**/*.{ts,js,css,html}'",
-		"resources": "npx pwa-asset-generator ./src/assets/img/appicon.png ./src/assets/pwa -i ./src/index.html -m ./src/manifest.json"
+		"resources": "npx pwa-asset-generator ./src/assets/icon/favicon.png ./src/assets/pwa -i ./src/index.html -m ./src/manifest.json"
 	},
 	"private": true,
 	"dependencies": {

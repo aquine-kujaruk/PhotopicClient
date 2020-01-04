@@ -2,7 +2,14 @@ import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {TranslateService} from '@ngx-translate/core';
 import {Subscription} from 'rxjs';
-import {Breackpoints, Languages} from '../enumerators/app.enum';
+import {
+	WIDTH_DESKTOP,
+	WIDTH_DESKTOP_HD,
+	WIDTH_MOBILE,
+	WIDTH_PHABLET,
+	WIDTH_TABLET,
+} from '../constants/app.const';
+import {ENGLISH, SPANISH, STATE_PLATFORM} from '../constants/app.const';
 import {
 	PlatformHeightAction,
 	PlatformNamesAction,
@@ -26,12 +33,12 @@ export class PlatformService {
 		private _webpService: WebpService,
 		public _translate: TranslateService,
 	) {
-		this._store.select('platform').subscribe((state) => {
+		this._store.select(STATE_PLATFORM).subscribe((state) => {
 			this.breakpoint = state.breakpoint;
 			this.language = state.language;
 
-			_translate.addLangs([Languages.EN, Languages.ES]);
-			_translate.setDefaultLang(Languages.EN);
+			_translate.addLangs([ENGLISH, SPANISH]);
+			_translate.setDefaultLang(ENGLISH);
 			_translate.use(this.language);
 		});
 	}
@@ -41,29 +48,29 @@ export class PlatformService {
 		this._store.dispatch(action);
 	}
 
-	setBreackpoint(width) {
-		if (width < 576 && this.breakpoint !== Breackpoints.XS) {
-			this.dispatchActionBreakpoint(Breackpoints.XS);
+	setBreakpoint(width) {
+		if (width < 576 && this.breakpoint !== WIDTH_MOBILE) {
+			this.dispatchActionBreakpoint(WIDTH_MOBILE);
 			return;
 		}
 
-		if (width >= 576 && width < 768 && this.breakpoint !== Breackpoints.SM) {
-			this.dispatchActionBreakpoint(Breackpoints.SM);
+		if (width >= 576 && width < 768 && this.breakpoint !== WIDTH_PHABLET) {
+			this.dispatchActionBreakpoint(WIDTH_PHABLET);
 			return;
 		}
 
-		if (width >= 768 && width < 992 && this.breakpoint !== Breackpoints.MD) {
-			this.dispatchActionBreakpoint(Breackpoints.MD);
+		if (width >= 768 && width < 992 && this.breakpoint !== WIDTH_TABLET) {
+			this.dispatchActionBreakpoint(WIDTH_TABLET);
 			return;
 		}
 
-		if (width >= 992 && width < 1200 && this.breakpoint !== Breackpoints.LG) {
-			this.dispatchActionBreakpoint(Breackpoints.LG);
+		if (width >= 992 && width < 1200 && this.breakpoint !== WIDTH_DESKTOP) {
+			this.dispatchActionBreakpoint(WIDTH_DESKTOP);
 			return;
 		}
 
-		if (width >= 1200 && this.breakpoint !== Breackpoints.XL) {
-			this.dispatchActionBreakpoint(Breackpoints.XL);
+		if (width >= 1200 && this.breakpoint !== WIDTH_DESKTOP_HD) {
+			this.dispatchActionBreakpoint(WIDTH_DESKTOP_HD);
 			return;
 		}
 	}
@@ -80,7 +87,7 @@ export class PlatformService {
 	}
 
 	setLanguage(language) {
-		if (language === Languages.ES || language === Languages.EN) {
+		if (language === SPANISH || language === ENGLISH) {
 			const action = new PlatformLanguageAction(language);
 			this._store.dispatch(action);
 		}

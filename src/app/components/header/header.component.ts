@@ -1,15 +1,8 @@
-import {
-	Component,
-	EventEmitter,
-	Input,
-	OnDestroy,
-	OnInit,
-	Output,
-} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Subscription} from 'rxjs';
 import {AppState} from 'src/app/store/app.reducer';
-import {Breackpoints} from '../../enumerators/app.enum';
+import {STATE_PLATFORM, WIDTH_MOBILE} from '../../constants/app.const';
 import {HeaderPopupService} from '../../services/header-popup.service';
 
 @Component({
@@ -28,22 +21,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 	private platformSubs: Subscription;
 
-	constructor(
-		private _headerPopupService: HeaderPopupService,
-		private _store: Store<AppState>,
-	) {}
+	constructor(private _headerPopupService: HeaderPopupService, private _store: Store<AppState>) {}
 
 	conditions = {
 		isNotHomeMobileWithSearchbar: () => {
-			return (
-				this.breakpoint !== Breackpoints.XS ||
-				(this.isHome && !this.showSearchBar)
-			);
+			return this.breakpoint !== WIDTH_MOBILE || (this.isHome && !this.showSearchBar);
 		},
 	};
 
 	ngOnInit() {
-		this.platformSubs = this._store.select('platform').subscribe((state) => {
+		this.platformSubs = this._store.select(STATE_PLATFORM).subscribe((state) => {
 			this.breakpoint = state.breakpoint;
 		});
 	}

@@ -1,33 +1,33 @@
 import {Injectable} from '@angular/core';
-import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {ActionSheetController, PopoverController} from '@ionic/angular';
 import {Store} from '@ngrx/store';
 import {Subscription} from 'rxjs';
 import {DarkThemeAction, LightThemeAction} from 'src/app/store/actions/ui.actions';
 import {AppState} from 'src/app/store/app.reducer';
-import {Breackpoints} from '../../../enumerators/app.enum';
+import {STATE_PLATFORM, WIDTH_MOBILE} from '../../../constants/app.const';
 import {StudioPopoverComponent} from '../../../popovers/home/studio-popover/studio-popover.component';
+import {ExternalLinksService} from '../../../services/external-links.service';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class HomePopupService {
 	private platformSubs: Subscription;
-	private breackpoint: string;
+	private breakpoint: string;
 
 	constructor(
 		private _actionSheetCtrl: ActionSheetController,
 		private _store: Store<AppState>,
-		private iab: InAppBrowser,
+		private _externalLinksService: ExternalLinksService,
 		private _popoverCtrl: PopoverController,
 	) {
-		this.platformSubs = this._store.select('platform').subscribe((state) => {
-			this.breackpoint = state.breakpoint;
+		this.platformSubs = this._store.select(STATE_PLATFORM).subscribe((state) => {
+			this.breakpoint = state.breakpoint;
 		});
 	}
 
 	studioPopUp(studio, event) {
-		if (this.breackpoint !== Breackpoints.XS) {
+		if (this.breakpoint !== WIDTH_MOBILE) {
 			this.studioPopover(studio, event);
 		} else {
 			this.studioActionSheet(studio);
@@ -56,7 +56,7 @@ export class HomePopupService {
 					text: 'Página web',
 					icon: 'globe',
 					handler: () => {
-						this.iab.create('https://ionicframework.com/', '_system');
+						this._externalLinksService.openLink(studio.webpage);
 					},
 				},
 				{
@@ -64,7 +64,7 @@ export class HomePopupService {
 					icon: 'logo-instagram',
 					cssClass: 'instagram-color',
 					handler: () => {
-						this.iab.create('https://www.instagram.com/eaquine/', '_system');
+						this._externalLinksService.openLink(studio.instagramProfile);
 					},
 				},
 				{
@@ -72,7 +72,7 @@ export class HomePopupService {
 					icon: 'logo-facebook',
 					cssClass: 'facebook-color',
 					handler: () => {
-						this.iab.create('https://www.facebook.com/profile.php?id=100009445921897', '_system');
+						this._externalLinksService.openLink(studio.facebookProfile);
 					},
 				},
 			],
@@ -105,15 +105,15 @@ export class HomePopupService {
 		}
 
 		if (data.res === 'webpage') {
-			this.iab.create('https://ionicframework.com/', '_system');
+			this._externalLinksService.openLink(studio.webpage);
 		}
 
 		if (data.res === 'instagram') {
-			this.iab.create('https://www.instagram.com/eaquine/', '_system');
+			this._externalLinksService.openLink(studio.instagramProfile);
 		}
 
 		if (data.res === 'facebook') {
-			this.iab.create('https://www.facebook.com/profile.php?id=100009445921897', '_system');
+			this._externalLinksService.openLink(studio.facebookProfile);
 		}
 	}
 

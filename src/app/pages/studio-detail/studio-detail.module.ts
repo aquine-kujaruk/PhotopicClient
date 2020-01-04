@@ -13,11 +13,17 @@ import {StudioDetailPageRoutingModule} from './studio-detail-routing.module';
 
 import {StudioDetailPage} from './studio-detail.page';
 
+// Store
+import {StoreModule} from '@ngrx/store';
+import {STATE_STUDIO_DETAIL} from '../../constants/app.const';
+import {studioDetailReducers} from './store/studio-detail.reducer';
+
 @NgModule({
 	imports: [
 		CommonModule,
 		FormsModule,
 		IonicModule,
+		StoreModule.forFeature(STATE_STUDIO_DETAIL, studioDetailReducers),
 		StudioDetailPageRoutingModule,
 		fromApp.ComponentsModule,
 		fromStudioDetails.ComponentsModule,

@@ -1,4 +1,4 @@
-import {Theme} from '../../enumerators/app.enum';
+import {DARK, LIGHT} from '../../constants/app.const';
 import * as fromUI from '../actions/ui.actions';
 
 export interface UIState {
@@ -8,16 +8,16 @@ export interface UIState {
 
 const initState: UIState = {
 	isLoading: false,
-	theme: Theme.LIGHT_THEME,
+	theme: LIGHT,
 };
 
 export function uiReducer(state = initState, action: fromUI.actions): UIState {
 	switch (action.type) {
 		case fromUI.LIGHT_THEME:
-			return {...state, theme: Theme.LIGHT_THEME};
+			return {...state, theme: LIGHT};
 
 		case fromUI.DARK_THEME:
-			return {...state, theme: Theme.DARK_THEME};
+			return {...state, theme: DARK};
 
 		default:
 			return state;

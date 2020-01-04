@@ -14,7 +14,10 @@
 	--ion-color-instagram: #eb4d4f;
 	--ion-color-instagram-rgb: 235, 77, 79;
 	/*  */
-	.light-theme {
+	--ion-color-whatsapp: #25d366;
+	--ion-color-whatsapp-rgb: 37, 211, 102;
+	/*  */
+	.light {
 		/*  */
 		--ion-color-background: #f8f8f8;
 		--ion-color-background-rgb: 248, 248, 248;
@@ -35,7 +38,7 @@
 		--ion-background-color: var(--ion-color-background);
 		--ion-text-color: var(--ion-color-text);
 	}
-	.dark-theme {
+	.dark {
 		/*  */
 		--ion-color-background: #0f1012;
 		--ion-color-background-rgb: 30, 32, 37;
@@ -117,4 +120,8 @@
 
 .instagram-color ion-icon {
 	color: var(--ion-color-instagram) !important;
+}
+
+.whatsapp-color ion-icon {
+	color: var(--ion-color-whatsapp) !important;
 }

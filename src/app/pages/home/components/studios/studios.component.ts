@@ -1,9 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
-import {Store} from '@ngrx/store';
-import {Subscription} from 'rxjs';
 import {HomePopupService} from '../../services/home-popup.service';
-import {AppState} from '../../store/home.reducer';
 import {ModalFilterComponent} from '../modal-filter/modal-filter.component';
 
 @Component({
@@ -12,18 +9,9 @@ import {ModalFilterComponent} from '../modal-filter/modal-filter.component';
 	styleUrls: ['./studios.component.scss'],
 })
 export class StudiosComponent implements OnInit, OnDestroy {
-	studiosSubs: Subscription;
-	selectedCategory: string;
+	@Input() selectedCategory: string;
 
-	constructor(
-		private _homePopUpService: HomePopupService,
-		private _store: Store<AppState>,
-		private _modalCtrl: ModalController,
-	) {
-		this.studiosSubs = this._store.select('home').subscribe((state) => {
-			this.selectedCategory = state.studios.category;
-		});
-	}
+	constructor(private _homePopUpService: HomePopupService, private _modalCtrl: ModalController) {}
 
 	ngOnInit() {}
 
@@ -45,7 +33,6 @@ export class StudiosComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy() {
-		this.studiosSubs.unsubscribe();
 		this._homePopUpService.cancelSubs();
 	}
 }

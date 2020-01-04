@@ -1,4 +1,5 @@
 import {
+	AfterViewInit,
 	Component,
 	EventEmitter,
 	Input,
@@ -10,6 +11,7 @@ import {
 import {IonSlides} from '@ionic/angular';
 import {Store} from '@ngrx/store';
 import {Subscription} from 'rxjs';
+import {STATE_PLATFORM} from 'src/app/constants/app.const';
 import {Categories} from 'src/app/enumerators/app.enum';
 import {CategoriesOptionsService} from 'src/app/services/categories-options.service';
 import {AppState} from 'src/app/store/app.reducer';
@@ -19,14 +21,13 @@ import {AppState} from 'src/app/store/app.reducer';
 	templateUrl: './categories.component.html',
 	styleUrls: ['./categories.component.scss'],
 })
-export class CategoriesComponent implements OnInit, OnDestroy {
+export class CategoriesComponent implements OnInit, AfterViewInit, OnDestroy {
 	@ViewChild(IonSlides, {static: true}) slides: IonSlides;
 	@Input() categories: Categories;
 	@Input() selectedCategory: string;
 	@Output() changeCategory = new EventEmitter<string>();
 
 	slideOpts: any;
-
 	private platformSubs: Subscription;
 
 	constructor(
@@ -35,11 +36,15 @@ export class CategoriesComponent implements OnInit, OnDestroy {
 	) {}
 
 	ngOnInit() {
-		this.platformSubs = this._store.select('platform').subscribe((state) => {
-			this.slideOpts = this._categoriesOptionsService.setSlidesOtions(
-				state.breakpoint,
-			);
+		this.platformSubs = this._store.select(STATE_PLATFORM).subscribe((state) => {
+			this.slideOpts = this._categoriesOptionsService.setSlidesOtions(state.breakpoint);
 		});
+	}
+
+	ngAfterViewInit() {
+		setTimeout(() => {
+			window.dispatchEvent(new Event('resize'));
+		}, 500);
 	}
 
 	slideChange(index, category: Categories) {

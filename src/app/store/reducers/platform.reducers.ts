@@ -1,4 +1,4 @@
-import {Breackpoints, Languages} from '../../enumerators/app.enum';
+import {SPANISH, WIDTH_MOBILE} from '../../constants/app.const';
 import * as fromPlatform from '../actions/platform.actions';
 
 export interface PlatformState {
@@ -9,16 +9,13 @@ export interface PlatformState {
 }
 
 const initState: PlatformState = {
-	breakpoint: Breackpoints.XS,
+	breakpoint: WIDTH_MOBILE,
 	names: [],
 	isWebpCompatible: false,
-	language: Languages.ES,
+	language: SPANISH,
 };
 
-export function platformReducer(
-	state = initState,
-	action: fromPlatform.actions,
-): PlatformState {
+export function platformReducer(state = initState, action: fromPlatform.actions): PlatformState {
 	switch (action.type) {
 		case fromPlatform.WIDTH:
 			return {...state, breakpoint: action.breakpoint};

@@ -1,15 +1,30 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
+import {Store} from '@ngrx/store';
+import {Subscription} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {AppState} from 'src/app/store/app.reducer';
 import {environment} from '../../environments/environment';
+import {LIGHT, STATE_UI} from '../constants/app.const';
 import {MapboxOutput} from '../interfaces/mapbox.interface';
+import {ExternalLinksService} from './external-links.service';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class MapboxService {
-	constructor(private http: HttpClient, private iab: InAppBrowser) {}
+	theme: string;
+	themeSubs: Subscription;
+
+	constructor(
+		private http: HttpClient,
+		private _externalLinksService: ExternalLinksService,
+		private _store: Store<AppState>,
+	) {
+		this.themeSubs = this._store.select(STATE_UI).subscribe((state) => {
+			this.theme = state.theme;
+		});
+	}
 
 	searchWord(query: string) {
 		const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/';
@@ -23,11 +38,12 @@ export class MapboxService {
 	staticImage(coordinates) {
 		const lon = coordinates[0];
 		const lat = coordinates[1];
-		const url = 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/';
+		const mapTheme = this.theme === LIGHT ? 'streets-v11' : 'dark-v10';
+		const url = `https://api.mapbox.com/styles/v1/mapbox/${mapTheme}/static/`;
 		const marker = 'pin-s+2db89c';
 		const zoom = 18;
-		const width = 400;
-		const height = 200;
+		const width = 600;
+		const height = 300;
 
 		return `${url}${marker}(${lon},${lat})/${lon},${lat},${zoom}/
 				${width}x${height}?access_token=${environment.mapbox.accessToken}`;
@@ -38,6 +54,6 @@ export class MapboxService {
 		const lat = coordinates[1];
 		const url = `http://maps.google.com/maps?z=18&q=${lat},${lon}`;
 
-		this.iab.create(url, '_system');
+		this._externalLinksService.openLink(url);
 	}
 }

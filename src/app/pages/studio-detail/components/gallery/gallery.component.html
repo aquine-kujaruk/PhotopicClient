@@ -24,15 +24,15 @@
 	</ion-row>
 </ion-grid>
 
-<app-categories [categories]="categories"></app-categories>
+<app-categories
+	[categories]="categories"
+	[selectedCategory]="selectedCategory"
+	(changeCategory)="slideChange($event)"
+></app-categories>
 
 <ion-grid class="ion-padding gallery-container">
 	<ion-row>
-		<ion-col
-			size="6"
-			#imageGalleryContainer
-			*ngFor="let columns of photoGallery | imageGallery"
-		>
+		<ion-col size="6" #imageGalleryContainer *ngFor="let columns of photoGallery | imageGallery">
 			<div
 				*ngFor="let photo of columns"
 				class="image-fit"

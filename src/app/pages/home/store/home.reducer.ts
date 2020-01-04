@@ -6,10 +6,10 @@ export interface HomeState {
 	studios: fromStudios.StudiosState;
 }
 
-export interface AppState extends AppState {
+export interface IAppState extends AppState {
 	home: HomeState;
 }
 
 export const homeReducers: ActionReducerMap<HomeState> = {
-	studios: fromStudios.studiosReducer
+	studios: fromStudios.studiosReducer,
 };

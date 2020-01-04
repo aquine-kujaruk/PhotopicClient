@@ -10,3 +10,40 @@
 ion-grid {
 	padding-top: 32px;
 }
+
+ion-list {
+	padding: 0;
+
+	ion-item {
+		cursor: pointer;
+		padding-bottom: 16px;
+
+		& .item-native {
+			padding: 0 !important;
+		}
+
+		ion-icon {
+			margin: 0 10px 0 0;
+			color: var(--ion-color-text-soft);
+			filter: saturate(1);
+			transition: color 0.5s;
+			font-size: 28px;
+			padding-right: 10px;
+		}
+
+		ion-label {
+			--color: var(--ion-color-text-soft) !important;
+			transition: color 0.5s;
+			font-size: 28px;
+			font-weight: bold;
+			margin-top: 0 !important;
+			margin-bottom: 0 !important;
+
+			&:first-child {
+				font-size: 20px;
+				padding-bottom: 30px;
+				color: var(--ion-color-text-medium);
+			}
+		}
+	}
+}

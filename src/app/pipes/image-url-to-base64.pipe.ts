@@ -34,7 +34,7 @@ export class ImageUrlToBase64Pipe implements PipeTransform {
 			const reader = new FileReader();
 			reader.addEventListener(
 				'load',
-				/* function */ () => {
+				() => {
 					resolve(reader.result);
 				},
 				false,

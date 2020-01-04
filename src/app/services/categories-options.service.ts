@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Breackpoints} from '../enumerators/app.enum';
+import {WIDTH_DESKTOP, WIDTH_DESKTOP_HD, WIDTH_PHABLET, WIDTH_TABLET} from '../constants/app.const';
 
 @Injectable({
 	providedIn: 'root',
@@ -7,15 +7,15 @@ import {Breackpoints} from '../enumerators/app.enum';
 export class CategoriesOptionsService {
 	constructor() {}
 
-	setSlidesOtions(breackpoint) {
-		if (breackpoint === Breackpoints.SM || breackpoint === Breackpoints.MD) {
+	setSlidesOtions(breakpoint) {
+		if (breakpoint === WIDTH_PHABLET || breakpoint === WIDTH_TABLET) {
 			return {
 				slidesPerView: 6.2,
 				allowTouchMove: true,
 			};
 		}
 
-		if (breackpoint === Breackpoints.LG || breackpoint === Breackpoints.XL) {
+		if (breakpoint === WIDTH_DESKTOP || breakpoint === WIDTH_DESKTOP_HD) {
 			return {
 				slidesPerView: 12.5,
 				allowTouchMove: false,

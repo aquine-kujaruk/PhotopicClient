@@ -6,6 +6,7 @@ import {
 	Input,
 	OnInit,
 } from '@angular/core';
+import {ExternalLinksService} from '../../../../services/external-links.service';
 import {MapboxService} from '../../../../services/mapbox.service';
 
 @Component({
@@ -17,7 +18,11 @@ import {MapboxService} from '../../../../services/mapbox.service';
 export class DetailsComponent implements OnInit, DoCheck {
 	@Input() studio: any;
 
-	constructor(public _mapboxService: MapboxService, private cdRef: ChangeDetectorRef) {}
+	constructor(
+		public _mapboxService: MapboxService,
+		private cdRef: ChangeDetectorRef,
+		public _externalLinksService: ExternalLinksService,
+	) {}
 
 	ngOnInit() {}
 

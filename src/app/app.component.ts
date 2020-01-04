@@ -1,11 +1,10 @@
 import {Component, HostListener} from '@angular/core';
 
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
-/* import {StatusBar} from '@ionic-native/status-bar/ngx'; */
 import {AlertController, Platform} from '@ionic/angular';
 
 import {SwUpdate, UpdateAvailableEvent} from '@angular/service-worker';
-import {Theme} from './enumerators/app.enum';
+import {LIGHT} from './constants/app.const';
 import {PlatformService} from './services/platform.service';
 import {ThemeService} from './services/theme.service';
 
@@ -18,7 +17,6 @@ export class AppComponent {
 	constructor(
 		private platform: Platform,
 		private splashScreen: SplashScreen,
-		/* private statusBar: StatusBar, */
 		private _themeService: ThemeService,
 		private _platformService: PlatformService,
 		private swUpdate: SwUpdate,
@@ -31,8 +29,8 @@ export class AppComponent {
 		this.platform.ready().then(() => {
 			/* this.statusBar.styleDefault(); */
 			this.splashScreen.hide();
-			this._themeService.addBodyClass(Theme.LIGHT_THEME);
-			this._platformService.setBreackpoint(this.platform.width());
+			this._themeService.addBodyClass(LIGHT);
+			this._platformService.setBreakpoint(this.platform.width());
 			this._platformService.setPlatformNames(this.platform.platforms());
 			this._platformService.setWebpCompatibility();
 			this.setLanguage();
@@ -42,7 +40,7 @@ export class AppComponent {
 
 	@HostListener('window:resize', ['$event'])
 	onResize(event) {
-		this._platformService.setBreackpoint(event.target.innerWidth);
+		this._platformService.setBreakpoint(event.target.innerWidth);
 	}
 
 	setLanguage() {
@@ -56,9 +54,7 @@ export class AppComponent {
 			this.swUpdate.available.subscribe(async (event: UpdateAvailableEvent) => {
 				const alert = await this.alertController.create({
 					header: `App update!`,
-					message: `Newer version - v${
-						(event.available.appData as any).version
-					} is available.
+					message: `Newer version - v${(event.available.appData as any).version} is available.
 						Change log: ${(event.available.appData as any).changelog}`,
 					buttons: [
 						{

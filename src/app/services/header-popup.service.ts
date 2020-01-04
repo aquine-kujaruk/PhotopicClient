@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {ActionSheetController, PopoverController} from '@ionic/angular';
 import {Store} from '@ngrx/store';
 import {Subscription} from 'rxjs';
-import {Breackpoints, Languages} from '../enumerators/app.enum';
+import {ENGLISH, SPANISH, STATE_PLATFORM, WIDTH_MOBILE} from '../constants/app.const';
 import {HeaderPopoverComponent} from '../popovers/app/header-popover/header-popover.component';
 import {PlatformLanguageAction} from '../store/actions/platform.actions';
 import {AppState} from '../store/app.reducer';
@@ -12,20 +12,20 @@ import {AppState} from '../store/app.reducer';
 })
 export class HeaderPopupService {
 	private platformSubs: Subscription;
-	private breackpoint: string;
+	private breakpoint: string;
 
 	constructor(
 		private _actionSheetCtrl: ActionSheetController,
 		private _store: Store<AppState>,
 		private _popoverCtrl: PopoverController,
 	) {
-		this.platformSubs = this._store.select('platform').subscribe((state) => {
-			this.breackpoint = state.breakpoint;
+		this.platformSubs = this._store.select(STATE_PLATFORM).subscribe((state) => {
+			this.breakpoint = state.breakpoint;
 		});
 	}
 
 	headerPopup(isAuthenticated, event) {
-		if (this.breackpoint === Breackpoints.XS) {
+		if (this.breakpoint === WIDTH_MOBILE) {
 			this.headerActionSheet(isAuthenticated);
 		} else {
 			this.headerPopover(isAuthenticated, event);
@@ -48,14 +48,14 @@ export class HeaderPopupService {
 					text: 'Loguéate',
 					handler: () => {
 						console.log('LogIn clicked');
-						this._store.dispatch(new PlatformLanguageAction(Languages.EN));
+						this._store.dispatch(new PlatformLanguageAction(ENGLISH));
 					},
 				},
 				{
 					text: 'Ajustes',
 					handler: () => {
 						console.log('Cancel clicked');
-						this._store.dispatch(new PlatformLanguageAction(Languages.ES));
+						this._store.dispatch(new PlatformLanguageAction(SPANISH));
 					},
 				},
 			],

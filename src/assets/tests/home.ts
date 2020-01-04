@@ -8,6 +8,10 @@ export const studiosJson = [
 		height: 200,
 		width: 400,
 		coordinates: [-78.4924422809062, -0.1425114741146416],
+		webpage: 'https://ionicframework.com/',
+		instagramProfile: 'https://www.instagram.com/eaquine/',
+		facebookProfile: 'https://www.facebook.com/profile.php?id=100009445921897',
+		address: 'Av. de La Prensa 2907, Quito 170104',
 	},
 	{
 		id: 2,
@@ -16,6 +20,10 @@ export const studiosJson = [
 		height: 200,
 		width: 400,
 		coordinates: [-78.4924422809062, -0.1425114741146416],
+		webpage: 'https://ionicframework.com/',
+		instagramProfile: 'https://www.instagram.com/eaquine/',
+		facebookProfile: 'https://www.facebook.com/profile.php?id=100009445921897',
+		address: 'Av. de La Prensa 2907, Quito 170104',
 	},
 	{
 		id: 3,
@@ -24,6 +32,10 @@ export const studiosJson = [
 		height: 200,
 		width: 400,
 		coordinates: [-78.4924422809062, -0.1425114741146416],
+		webpage: 'https://ionicframework.com/',
+		instagramProfile: 'https://www.instagram.com/eaquine/',
+		facebookProfile: 'https://www.facebook.com/profile.php?id=100009445921897',
+		address: 'Av. de La Prensa 2907, Quito 170104',
 	},
 	{
 		id: 4,
@@ -32,6 +44,10 @@ export const studiosJson = [
 		height: 200,
 		width: 400,
 		coordinates: [-78.4924422809062, -0.1425114741146416],
+		webpage: 'https://ionicframework.com/',
+		instagramProfile: 'https://www.instagram.com/eaquine/',
+		facebookProfile: 'https://www.facebook.com/profile.php?id=100009445921897',
+		address: 'Av. de La Prensa 2907, Quito 170104',
 	},
 	{
 		id: 5,
@@ -40,6 +56,10 @@ export const studiosJson = [
 		height: 200,
 		width: 400,
 		coordinates: [-78.4924422809062, -0.1425114741146416],
+		webpage: 'https://ionicframework.com/',
+		instagramProfile: 'https://www.instagram.com/eaquine/',
+		facebookProfile: 'https://www.facebook.com/profile.php?id=100009445921897',
+		address: 'Av. de La Prensa 2907, Quito 170104',
 	},
 	{
 		id: 6,
@@ -48,6 +68,10 @@ export const studiosJson = [
 		height: 200,
 		width: 400,
 		coordinates: [-78.4924422809062, -0.1425114741146416],
+		webpage: 'https://ionicframework.com/',
+		instagramProfile: 'https://www.instagram.com/eaquine/',
+		facebookProfile: 'https://www.facebook.com/profile.php?id=100009445921897',
+		address: 'Av. de La Prensa 2907, Quito 170104',
 	},
 	{
 		id: 7,
@@ -56,6 +80,10 @@ export const studiosJson = [
 		height: 200,
 		width: 400,
 		coordinates: [-78.4924422809062, -0.1425114741146416],
+		webpage: 'https://ionicframework.com/',
+		instagramProfile: 'https://www.instagram.com/eaquine/',
+		facebookProfile: 'https://www.facebook.com/profile.php?id=100009445921897',
+		address: 'Av. de La Prensa 2907, Quito 170104',
 	},
 	{
 		id: 8,
@@ -64,6 +92,10 @@ export const studiosJson = [
 		height: 200,
 		width: 400,
 		coordinates: [-78.4924422809062, -0.1425114741146416],
+		webpage: 'https://ionicframework.com/',
+		instagramProfile: 'https://www.instagram.com/eaquine/',
+		facebookProfile: 'https://www.facebook.com/profile.php?id=100009445921897',
+		address: 'Av. de La Prensa 2907, Quito 170104',
 	},
 ];
 
